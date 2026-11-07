@@ -36,7 +36,6 @@ import androidx.compose.material.icons.filled.Key
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Security
 import androidx.compose.material.icons.filled.Send
-import androidx.compose.material.icons.filled.WhatsApp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -48,6 +47,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import android.widget.Toast
 import org.json.JSONArray
 import org.json.JSONObject
@@ -136,8 +136,8 @@ private fun GenyKeyManagerScreen() {
             CenterAlignedTopAppBar(
                 title = {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("GENY KEY MANAGER", fontWeight = FontWeight.Black, style = MaterialTheme.typography.titleMedium, letterSpacing = androidx.compose.ui.unit.sp(1.4f))
-                        Text("SECURE ACTIVATION CONSOLE", style = MaterialTheme.typography.labelSmall, color = Muted, letterSpacing = androidx.compose.ui.unit.sp(1.8f))
+                        Text("GENY KEY MANAGER", fontWeight = FontWeight.Black, style = MaterialTheme.typography.titleMedium, letterSpacing = 1.4.sp)
+                        Text("SECURE ACTIVATION CONSOLE", style = MaterialTheme.typography.labelSmall, color = Muted, letterSpacing = 1.8.sp)
                     }
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = Ink, titleContentColor = Color.White)
@@ -155,7 +155,7 @@ private fun GenyKeyManagerScreen() {
                                 Image(painterResource(R.drawable.ic_geny_logo), null, modifier = Modifier.size(76.dp).alpha(glow))
                                 Column(Modifier.weight(1f)) {
                                     Text("GENY", style = MaterialTheme.typography.headlineMedium, color = Color.White, fontWeight = FontWeight.Black)
-                                    Text("KEY MANAGER", style = MaterialTheme.typography.titleMedium, color = Mint, letterSpacing = androidx.compose.ui.unit.sp(2f))
+                                    Text("KEY MANAGER", style = MaterialTheme.typography.titleMedium, color = Mint, letterSpacing = 2.sp)
                                     Text("La maîtrise des activations, en toute sécurité.", color = Muted, style = MaterialTheme.typography.bodySmall)
                                 }
                             }
