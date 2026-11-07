@@ -4,8 +4,12 @@ local.properties
 *.iml
 /build/
 /app/build/
-/private/
-/*.pem
+
+# Keep the private directory structure, but NEVER commit the signing key.
+/private/*
+!/private/README.md
+!/private/.gitkeep
+*.pem
 *.jks
 *.keystore
 *.apk
