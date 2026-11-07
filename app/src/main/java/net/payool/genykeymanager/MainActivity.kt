@@ -30,6 +30,7 @@ import java.security.KeyFactory
 import java.security.KeyStore
 import java.security.Signature
 import java.security.interfaces.RSAPrivateCrtKey
+import java.security.interfaces.RSAPublicKey
 import java.security.spec.PKCS8EncodedKeySpec
 import java.security.spec.X509EncodedKeySpec
 import java.security.SecureRandom
@@ -204,9 +205,8 @@ private fun parsePrivateKey(pemBytes: ByteArray): java.security.PrivateKey {
 
 private fun verifyKeyPair(privateKey: java.security.PrivateKey) {
     val rsa = privateKey as? RSAPrivateCrtKey ?: error("Clé RSA PKCS#8 avec paramètres CRT requise.")
-    val expected = KeyFactory.getInstance("RSA").generatePublic(X509EncodedKeySpec(Base64.getDecoder().decode(ACTIVATION_PUBLIC_KEY)))
-    require(rsa.modulus == (expected as java.security.interfaces.RSAPublicKey).modulus &&
-        rsa.publicExponent == expected.publicExponent) {
+    val expected = KeyFactory.getInstance("RSA").generatePublic(X509EncodedKeySpec(Base64.getDecoder().decode(ACTIVATION_PUBLIC_KEY))) as RSAPublicKey
+    require(rsa.modulus == expected.modulus && rsa.publicExponent == expected.publicExponent) {
         "Cette clé privée ne correspond pas à la clé publique de l'APK Geny-Abess. Aucune activation créée."
     }
 }
