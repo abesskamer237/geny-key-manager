@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:allowBackup="false"
-        android:label="GENY KEY MANAGER"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_geny_logo"
+        android:roundIcon="@drawable/ic_geny_logo"
         android:theme="@android:style/Theme.Material.Light.NoActionBar"
         android:supportsRtl="true">
         <activity
